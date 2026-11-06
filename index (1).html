@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#292A2A">
+<title>Stay Inn — Proposta de preços do Graffi City House, dezembro a maio</title>
+<meta name="description" content="Proposta de preços da Stay Inn para o Graffi City House, de dezembro a maio, por período e tipo de quarto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F2F0;
+  --surface:#FFFFFF;
+  --ink:#292A2A;
+  --muted:#5B5C5C;
+  --line:#D9D9D5;
+  --band:#292A2A;
+  --gold:#B99449;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --light:"Montserrat","Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#1B1C1C;
+    --surface:#292A2A;
+    --ink:#F2F2F0;
+    --muted:#B9B9B4;
+    --line:#444545;
+    --band:#1B1C1C;
+  }
+}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.55 var(--sans);
+  font-variant-numeric:tabular-nums;
+}
+.wrap{max-width:1560px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.star{color:var(--ink)}
+
+/* Abertura com a curva dourada do manual */
+.hero{
+  position:relative;overflow:hidden;background:#292A2A;color:#fff;
+  padding:clamp(28px,5vw,52px) 0 clamp(110px,17vw,190px);
+}
+.hero .wrap{position:relative;z-index:1}
+.by{margin:0 0 clamp(30px,6vw,60px);display:flex;flex-direction:column;gap:2px}
+.by-name{font-weight:800;font-size:1.4rem;line-height:1.1;letter-spacing:-.01em}
+.by-tag{font-family:var(--light);font-weight:300;font-size:.9rem;color:var(--gold)}
+h1{
+  margin:0;font-weight:800;color:#fff;
+  font-size:clamp(2.1rem,7vw,4.6rem);line-height:1.04;letter-spacing:-.025em;
+}
+.prop{margin:14px 0 0;font-weight:600;font-size:clamp(1.05rem,2.6vw,1.6rem);color:var(--gold)}
+.wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(90px,15vw,180px);display:block}
+
+main.wrap{padding-top:30px;padding-bottom:56px}
+.legend{margin:0;color:var(--muted);max-width:72ch;font-family:var(--light);font-weight:300;font-size:1rem}
+
+.controls{display:flex;flex-wrap:wrap;gap:12px 24px;margin:22px 0 18px}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{
+  font:inherit;font-weight:600;font-size:.95rem;color:var(--ink);
+  background:transparent;border:0;padding:9px 16px;cursor:pointer;
+}
+.seg button + button{border-left:1.5px solid var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--gold);color:#292A2A}
+button:focus-visible,.scroll:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+/* Tabela completa */
+.scroll{position:relative;overflow-x:auto;background:var(--surface);border:1.5px solid var(--ink);border-radius:12px}
+table{border-collapse:separate;border-spacing:0;min-width:100%;width:max-content}
+th,td{
+  padding:10px 14px;text-align:right;white-space:nowrap;
+  border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+}
+tbody td{font-weight:600;font-size:.95rem;min-width:120px}
+th.sticky{
+  position:sticky;left:0;z-index:2;text-align:left;background:var(--surface);
+  border-right:1.5px solid var(--ink);min-width:184px;font-weight:600;
+}
+thead .month th{
+  background:var(--band);color:#fff;text-align:left;font-weight:600;
+  border-right:1px solid rgba(255,255,255,.18);border-bottom:3px solid var(--gold);
+}
+thead .month th.sticky{background:var(--band)}
+thead .names th{vertical-align:bottom;font-weight:600;font-size:.9rem;line-height:1.3;white-space:normal;min-width:120px}
+thead .names th.hol{
+  background:color-mix(in srgb,var(--gold) 26%,var(--surface));
+  box-shadow:inset 0 3px 0 var(--gold);
+}
+thead .meta th,thead .meta td{
+  color:var(--muted);font-family:var(--light);font-weight:300;font-size:.85rem;
+  padding-top:6px;padding-bottom:6px;
+}
+thead .meta.last th,thead .meta.last td{border-bottom:1.5px solid var(--ink)}
+tbody tr.group th{background:var(--surface);font-weight:800;padding-top:14px}
+tbody tr.group td{border-bottom:1px solid var(--line)}
+tbody th.sticky .u{display:block;font-weight:800}
+tbody th.sticky .t{display:block;font-family:var(--light);font-weight:300;color:var(--muted);font-size:.85rem}
+tbody th.sticky.indent{padding-left:26px;font-weight:600}
+tbody td{
+  background:var(--surface);
+  background:color-mix(in srgb,var(--gold) var(--p,0%),var(--surface));
+}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+tbody tr.last-of-unit th,tbody tr.last-of-unit td{border-bottom:1px solid var(--line)}
+
+/* Por período */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chips button{
+  font:inherit;font-weight:600;font-size:.92rem;color:var(--ink);
+  background:var(--surface);border:1.5px solid var(--line);border-radius:999px;
+  padding:7px 14px;cursor:pointer;
+}
+.chips button .star{margin-right:4px}
+.chips button[aria-pressed="true"]{background:var(--gold);color:#292A2A;border-color:var(--gold)}
+.chips button[aria-pressed="true"] .star{color:#292A2A}
+.card{background:var(--surface);border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;max-width:760px}
+.card .top{padding:20px 22px 16px;border-bottom:1.5px solid var(--ink)}
+.card.hol .top{background:color-mix(in srgb,var(--gold) 22%,var(--surface));box-shadow:inset 0 4px 0 var(--gold)}
+.card h2{margin:0;font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.1;font-weight:800;letter-spacing:-.02em}
+.card .facts{display:flex;flex-wrap:wrap;gap:4px 28px;margin:10px 0 0;color:var(--muted)}
+.card .facts div{display:flex;gap:6px}
+.card .facts dt{font-family:var(--light);font-weight:300}
+.card .facts dd{margin:0;color:var(--ink);font-weight:600}
+.card .rooms{padding:6px 22px 14px}
+.card h3{margin:18px 0 4px;font-size:1rem;font-weight:800}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:9px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .price{font-size:1.3rem;font-weight:600;white-space:nowrap}
+
+/* Rodapé */
+.foot{background:#292A2A;color:#fff;margin-top:8px;border-top:4px solid var(--gold)}
+.foot .wrap{padding-top:28px;padding-bottom:32px}
+.foot p{margin:0 0 6px;max-width:72ch}
+.foot .brand{font-weight:800;font-size:1.1rem}
+.foot .note{font-family:var(--light);font-weight:300;font-size:.9rem;color:#D9D9D5}
+.foot .contacts{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:14px}
+.foot a{color:#fff;text-decoration-color:var(--gold);text-underline-offset:3px}
+.foot a:focus-visible{outline-color:#fff}
+
+[hidden]{display:none !important}
+
+@media (max-width:760px){
+  th,td{padding:9px 10px}
+  th.sticky{min-width:130px}
+  tbody td{min-width:100px;font-size:.9rem}
+  .seg button{padding:9px 12px}
+}
+@media print{
+  @page{size:landscape;margin:12mm}
+  body{background:#fff;color:#000}
+  .hero{background:none;color:#000;padding:0 0 12px;border-bottom:3px solid var(--gold)}
+  .hero h1{color:#000;font-size:28px}
+  .hero .prop,.hero .by-tag{color:#555}
+  .wave,.controls,.chips{display:none !important}
+  #view-tabela{display:block !important}
+  #view-periodo{display:none !important}
+  .scroll{overflow:visible;border-radius:0}
+  th,td{padding:5px 6px;font-size:10px}
+  th.sticky{position:static;min-width:0}
+  tbody td{min-width:0}
+  .foot{background:none;color:#000;border-top:1px solid #999}
+  .foot a{color:#000}
+  html{color-scheme:light}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="by"><span class="by-name">Stay Inn</span><span class="by-tag">Soluções para hospedagem</span></p>
+    <h1>Proposta de preços</h1>
+    <p class="prop">Graffi City House, de dezembro a maio</p>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 160 L0 118 C380 152 800 112 1200 40 L1200 160 Z" fill="#1B1C1C"/>
+    <path d="M0 96 C380 130 800 70 1200 0 L1200 40 C800 112 380 152 0 118 Z" fill="#B99449"/>
+  </svg>
+</header>
+
+<main class="wrap">
+  <p class="legend"><span class="star" aria-hidden="true">★</span> marca os feriados. Datas normais não têm <span class="star" aria-hidden="true">★</span>. Quanto mais dourada a célula, mais alto o valor dentro do mesmo tipo de quarto.</p>
+
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Forma de visualizar">
+      <button type="button" data-view="tabela" aria-pressed="true">Tabela completa</button>
+      <button type="button" data-view="periodo" aria-pressed="false">Por período</button>
+    </div>
+    <div class="seg" role="group" aria-label="Filtrar períodos">
+      <button type="button" data-filter="todos" aria-pressed="true">Todos</button>
+      <button type="button" data-filter="feriados" aria-pressed="false">Só feriados</button>
+      <button type="button" data-filter="normais" aria-pressed="false">Só datas normais</button>
+    </div>
+  </div>
+
+  <section id="view-tabela" aria-label="Tabela completa de preços">
+    <div class="scroll" tabindex="0" role="region" aria-label="Tabela de preços, role para os lados para ver todos os períodos">
+      <table id="tabela"></table>
+    </div>
+  </section>
+
+  <section id="view-periodo" aria-label="Preços por período" hidden>
+    <div class="chips" id="chips" role="group" aria-label="Escolher período"></div>
+    <article class="card" id="card"></article>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="brand">Stay Inn</p>
+    <p class="note">Proposta elaborada pela Stay Inn, administradora do Graffi City House. Os valores aparecem exatamente como na planilha de pricing, proposta de dezembro até maio.</p>
+    <p class="contacts">
+      <a href="mailto:contato@stayinn.com.br">contato@stayinn.com.br</a>
+      <a href="https://stayinn.com.br" target="_blank" rel="noopener">stayinn.com.br</a>
+      <a href="https://instagram.com/stayinn.co" target="_blank" rel="noopener">@stayinn.co</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+/* Dados copiados da planilha, sem alteração. Ordem das colunas = ordem da planilha. */
+const PERIODS = [
+  { name: "Dezembro",          month: "Dezembro",  holiday: false, dates: "1 a 19 dez",  min: "-" },
+  { name: "Natal",             month: "Dezembro",  holiday: true,  dates: "20-25 dez",   min: "3" },
+  { name: "Reveillon",         month: "Dezembro",  holiday: true,  dates: "26 - 04 jan", min: "5" },
+  { name: "5-10 Janeiro",      month: "Janeiro",   holiday: true,  dates: "1ª semana",   min: "2" },
+  { name: "11-31 Janeiro",     month: "Janeiro",   holiday: false, dates: "-",           min: "1" },
+  { name: "Fevereiro",         month: "Fevereiro", holiday: false, dates: "-",           min: "1" },
+  { name: "Carnaval",          month: "Fevereiro", holiday: true,  dates: "6 - 10 fev",  min: "5" },
+  { name: "Março",             month: "Março",     holiday: false, dates: "-",           min: "1" },
+  { name: "Sexta-feira Santa", month: "Março",     holiday: true,  dates: "26-28",       min: "2" },
+  { name: "Abril",             month: "Abril",     holiday: false, dates: "-",           min: "1" },
+  { name: "Tiradentes",        month: "Abril",     holiday: true,  dates: "21",          min: "1" },
+  { name: "Maio",              month: "Maio",      holiday: false, dates: "-",           min: "1" },
+  { name: "Dia do Trabalho",   month: "Maio",      holiday: true,  dates: "01-02",       min: "1" },
+  { name: "Corpus christi",    month: "Maio",      holiday: true,  dates: "27-30",       min: "3" }
+];
+
+const UNITS = [
+  { unit: "Suíte casal 2p", rooms: [
+    { type: "Casal 2p", v: ["240,00","300,00","600,00","350,00","280,00","280,00","650,00","280,00","320,00","250,00","260,00","230,00","260,00","260,00"] },
+    { type: "Casal 1p", v: ["220,00","280,00","580,00","330,00","260,00","260,00","630,00","260,00","300,00","230,00","240,00","210,00","240,00","240,00"] }
+  ]},
+  { unit: "Suíte tripla 3p", rooms: [
+    { type: "Triplo 3p", v: ["290,00","360,00","720,00","410,00","340,00","340,00","750,00","340,00","380,00","320,00","330,00","280,00","330,00","330,00"] },
+    { type: "Triplo 2p", v: ["270,00","340,00","700,00","390,00","320,00","320,00","730,00","320,00","360,00","300,00","310,00","260,00","310,00","310,00"] },
+    { type: "Triplo 1p", v: ["250,00","320,00","680,00","370,00","300,00","300,00","710,00","300,00","340,00","280,00","290,00","240,00","290,00","290,00"] }
+  ]},
+  { unit: "Compartilhado Feminino 6p", rooms: [
+    { type: "Cama - Feminino", v: ["120,00","135,00","200,00","165,00","135,00","125,00","210,00","125,00","135,00","115,00","120,00","100,00","120,00","120,00"] }
+  ]},
+  { unit: "Compartilhado Misto 6p", rooms: [
+    { type: "Cama - Misto", v: ["115,00","130,00","190,00","150,00","130,00","120,00","200,00","120,00","130,00","110,00","115,00","95,00","115,00","115,00"] }
+  ]},
+  { unit: "Compartilhado Misto 8p", rooms: [
+    { type: "Cama - Misto", v: ["110,00","125,00","180,00","145,00","125,00","115,00","195,00","115,00","125,00","105,00","110,00","90,00","110,00","110,00"] }
+  ]}
+];
+
+const state = {
+  view: window.matchMedia("(max-width: 760px)").matches ? "periodo" : "tabela",
+  filter: "todos",
+  period: 0
+};
+
+const money = s => "R$ " + s;
+const num = s => parseFloat(s.replace(".", "").replace(",", "."));
+const star = '<span class="star" aria-hidden="true">★</span>';
+
+function visible() {
+  return PERIODS
+    .map((p, i) => ({ p, i }))
+    .filter(({ p }) =>
+      state.filter === "todos" ||
+      (state.filter === "feriados" ? p.holiday : !p.holiday));
+}
+
+function heat(room, i) {
+  const vals = room.v.map(num);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const t = max === min ? 0 : (num(room.v[i]) - min) / (max - min);
+  return Math.round(t * 34) + "%";
+}
+
+function renderTable() {
+  const vis = visible();
+  const spans = [];
+  vis.forEach(({ p }) => {
+    const last = spans[spans.length - 1];
+    if (last && last.month === p.month) last.n++;
+    else spans.push({ month: p.month, n: 1 });
+  });
+
+  let h = "<caption class='sr'>Preços por tipo de quarto e período, de dezembro a maio</caption><thead>";
+  h += '<tr class="month"><th class="sticky" scope="col"><span class="sr">Mês</span></th>' +
+       spans.map(s => `<th colspan="${s.n}" scope="colgroup">${s.month}</th>`).join("") + "</tr>";
+  h += '<tr class="names"><th class="sticky" scope="col">Quarto</th>' +
+       vis.map(({ p }) => `<th scope="col" class="${p.holiday ? "hol" : ""}">${p.holiday ? star + " " : ""}${p.name}${p.holiday ? '<span class="sr"> (feriado)</span>' : ""}</th>`).join("") + "</tr>";
+  h += '<tr class="meta"><th class="sticky" scope="row">Datas</th>' +
+       vis.map(({ p }) => `<td>${p.dates}</td>`).join("") + "</tr>";
+  h += '<tr class="meta last"><th class="sticky" scope="row">Min. noites</th>' +
+       vis.map(({ p }) => `<td>${p.min}</td>`).join("") + "</tr></thead><tbody>";
+
+  UNITS.forEach(u => {
+    const multi = u.rooms.length > 1;
+    if (multi) {
+      h += `<tr class="group"><th class="sticky" scope="rowgroup">${u.unit}</th><td colspan="${vis.length}"></td></tr>`;
+    }
+    u.rooms.forEach((r, idx) => {
+      const lastOfUnit = idx === u.rooms.length - 1;
+      const label = multi
+        ? `<th class="sticky indent" scope="row">${r.type}</th>`
+        : `<th class="sticky" scope="row"><span class="u">${u.unit}</span><span class="t">${r.type}</span></th>`;
+      h += `<tr class="${lastOfUnit ? "last-of-unit" : ""}">${label}` +
+           vis.map(({ i }) => `<td style="--p:${heat(r, i)}">${money(r.v[i])}</td>`).join("") + "</tr>";
+    });
+  });
+  h += "</tbody>";
+  document.getElementById("tabela").innerHTML = h;
+}
+
+function renderPeriods() {
+  const vis = visible();
+  if (!vis.some(({ i }) => i === state.period)) state.period = vis[0].i;
+
+  document.getElementById("chips").innerHTML = vis.map(({ p, i }) =>
+    `<button type="button" data-period="${i}" aria-pressed="${i === state.period}">${p.holiday ? star : ""}${p.name}</button>`
+  ).join("");
+
+  const p = PERIODS[state.period];
+  let h = `<div class="top"><h2>${p.holiday ? star + " " : ""}${p.name}</h2>` +
+          `<dl class="facts"><div><dt>Datas</dt><dd>${p.dates}</dd></div>` +
+          `<div><dt>Min. noites</dt><dd>${p.min}</dd></div></dl></div><div class="rooms">`;
+  UNITS.forEach(u => {
+    h += `<h3>${u.unit}</h3>`;
+    u.rooms.forEach(r => {
+      h += `<div class="row"><span class="label">${r.type}</span><span class="price">${money(r.v[state.period])}</span></div>`;
+    });
+  });
+  h += "</div>";
+  const card = document.getElementById("card");
+  card.className = "card" + (p.holiday ? " hol" : "");
+  card.innerHTML = h;
+}
+
+function render() {
+  document.querySelectorAll("[data-view]").forEach(b =>
+    b.setAttribute("aria-pressed", b.dataset.view === state.view));
+  document.querySelectorAll("[data-filter]").forEach(b =>
+    b.setAttribute("aria-pressed", b.dataset.filter === state.filter));
+  document.getElementById("view-tabela").hidden = state.view !== "tabela";
+  document.getElementById("view-periodo").hidden = state.view !== "periodo";
+  renderTable();
+  renderPeriods();
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  if (b.dataset.view) state.view = b.dataset.view;
+  else if (b.dataset.filter) state.filter = b.dataset.filter;
+  else if (b.dataset.period) state.period = Number(b.dataset.period);
+  else return;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
